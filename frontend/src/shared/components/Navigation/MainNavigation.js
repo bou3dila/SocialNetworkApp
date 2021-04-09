@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import MainHeader from './MainHeader';
 import NavLinks from './NavLinks';
+import Backdrop from '../UIElements/Backdrop';
 import SideDrawer from './SideDrawer';
 import './MainNavigation.css';
 
@@ -15,12 +16,12 @@ const MainNavigation = props => {
     }
     return (
         <React.Fragment>
-            {drawerIsOpen && (
-            <SideDrawer>
+            {drawerIsOpen && <Backdrop  onClick={openDrawer}/>}
+            <SideDrawer show={drawerIsOpen}>
                 <nav className="main-navigation__drawer-nav">
                     <NavLinks />
                 </nav>
-            </SideDrawer>)}
+            </SideDrawer>
             <MainHeader>
                 <button className="main-navigation__menu-btn" onClick={openDrawer}>
                     <span />
